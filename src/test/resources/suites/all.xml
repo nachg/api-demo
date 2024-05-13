@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="API Tests" verbose="1" parallel="classes" thread-count="1">
+    <test name="Смоки">
+        <classes>
+            <class name="com.apidemo.api.SmokeTest"/>
+        </classes>
+    </test>
+    <test name="Тесты по Статьям" >
+        <classes>
+            <class name="com.apidemo.api.tests.endpoints.articles.CreateTest"/>
+            <class name="com.apidemo.api.tests.endpoints.articles.DeleteTest"/>
+            <class name="com.apidemo.api.tests.endpoints.articles.GetAllTest"/>
+            <class name="com.apidemo.api.tests.endpoints.articles.GetByIdTest"/>
+            <class name="com.apidemo.api.tests.endpoints.articles.GetTest"/>
+
+            <class name="com.apidemo.api.tests.endpoints.tags.GetAllTest"/>
+
+            <class name="com.apidemo.api.tests.func.articles.ArticlesTest"/>
+
+            <class name="com.apidemo.api.tests.acl.AuthCheckTest"/>
+            <class name="com.apidemo.api.tests.acl.GetArticleTest"/>
+
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,11 @@
+Users:
+  default1:
+    User:
+      username: "test_1"
+      login: "test_1@email.com"
+      password: "test_1@email.com"
+  default2:
+    User:
+      username: "test_2"
+      login: "test_2@email.com"
+      password: "test_2@email.com"
