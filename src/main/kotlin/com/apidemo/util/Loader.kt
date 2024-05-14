@@ -12,7 +12,8 @@ object Loader {
     fun loadProperties() {
         noLog {
             scan(
-                "com.apidemo.api.realworld.constants" to "realworld/constants"
+                "com.apidemo.api.realworld.constants" to "realworld/constants",
+                "com.apidemo.util.db.config" to "realworld/db/config"
             )
         }
     }

@@ -1,0 +1,18 @@
+Connections:
+  coreApi:
+    Connection:
+      url: "jdbc:postgresql://ifgrnt-pgc002lk.test.vtb.ru/core_api_db"
+      login: "core_api_db_admin"
+      password: "BOJufG-rV5pf5jkBk9URiuMZJ36Ef43TTDcxhZguE_9YQ-ZoY-f-_.Xg7V-Wm"
+
+  dealProc:
+    Connection:
+      url: "jdbc:postgresql://ifgrnt-pgc002lk.test.vtb.ru/deal_processor_db"
+      login: "deal_processor_db_admin"
+      password: "NrMou65Elrtign2rSjyzDORzp0OMT"
+
+  nt:
+    Connection:
+      url: "jdbc:postgresql://localhost/nikitachegodaev"
+      login: "postgres"
+      password: "postgres"

@@ -16,7 +16,6 @@ import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import kotlin.time.*
 
-@OptIn(ExperimentalTime::class)
 class BaseNtTest<T>(
     val parallelDataProvider: DataProvider<T>,
     val singleDataProvider: DataProvider<T> = DataProvider(parallelDataProvider.data.subList(0,1)),
