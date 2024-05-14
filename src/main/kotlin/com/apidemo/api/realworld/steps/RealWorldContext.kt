@@ -18,7 +18,7 @@ class RealWorldContext(
     val articles: Articles
         get() = api.api.articles
 
-    private var slug = ""
+    var slug = ""
     private var createRequest = ArticleCreateRequest(
         ArticleCreateRequest.Article().apply {
             title = UUID.randomUUID().toString()
@@ -66,7 +66,9 @@ class RealWorldContext(
         newAction(
             title = DELETE,
         ) {
-
+            articles.delete(
+                slug
+            )
         }
     }
     companion object {

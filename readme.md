@@ -13,5 +13,8 @@ https://realworld-docs.netlify.app/docs/specs/frontend-specs/swagger/
 
 Демо:
 https://demo.realworld.io/#/
+https://realworld-ash.fly.dev/
 
+Сорсы фуллстэк:
+https://github.com/rjaros/kvision-realworld-example-app-fullstack?tab=readme-ov-file
 

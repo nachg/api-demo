@@ -11,7 +11,6 @@
             <class name="com.apidemo.api.tests.endpoints.articles.DeleteTest"/>
             <class name="com.apidemo.api.tests.endpoints.articles.GetAllTest"/>
             <class name="com.apidemo.api.tests.endpoints.articles.GetByIdTest"/>
-            <class name="com.apidemo.api.tests.endpoints.articles.GetTest"/>
 
             <class name="com.apidemo.api.tests.endpoints.tags.GetAllTest"/>
 

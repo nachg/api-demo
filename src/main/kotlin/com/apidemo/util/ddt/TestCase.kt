@@ -112,7 +112,6 @@ fun TestCaseWrapper.response(dumpResponse:Boolean = false, l: (Any) -> Boolean) 
     this.lambdaResponse = l
 }
 
-
 fun <G:Any,W> When<G, W>.statusShouldBe(code: Int) {
     Log.action("Код ответа должен быть: $code") {
         assertThat((actual as ResponseWrapper<*>).response.statusCode())

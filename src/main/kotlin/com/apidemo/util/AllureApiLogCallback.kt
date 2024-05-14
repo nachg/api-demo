@@ -28,6 +28,8 @@ class AllureApiLogCallback: ILogCallback {
         if(canLog && msg.body.isNotEmpty()) {
             val text = msg.bodyMessage.toString()
 
+            val status = if(msg.tag == "error") Status.FAILED else Status.PASSED
+
             if(msg.bodyMessage.uuid.toString() == curUUID) {
                 if(msg.tag == REQUEST_JSON) {
                     Allure.addAttachment(
@@ -37,7 +39,7 @@ class AllureApiLogCallback: ILogCallback {
                 } else {
                     val result = StepResult()
                         .setName(text)
-                        .setStatus(Status.PASSED)
+                        .setStatus(status)
 
                     if(msg.isThen) {
                         result.description = "expected"
@@ -60,7 +62,7 @@ class AllureApiLogCallback: ILogCallback {
                         text
                     )
                 } else {
-                    Allure.step(text)
+                    Allure.step(text, status)
                 }
             }
         }

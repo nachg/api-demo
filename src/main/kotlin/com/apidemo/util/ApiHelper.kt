@@ -250,6 +250,8 @@ open class ApiHelper {
             cls = cls
         ) {
             val headers = headers ?: getHeaders()
+
+
             var req = RestAssured.given()
                 .baseUri(url)
                 .headers(headers)
@@ -476,6 +478,7 @@ open class ApiHelper {
             Log.error("Failure response: ${response.exceptionOrNull()?.message}")
         }
         var res = response.getOrNull()
+        currentUrlCall.set(url)
         urlCalls.add(
             ApiLog(
                 method = method,
@@ -716,24 +719,15 @@ open class ApiHelper {
 
     private fun logRequest(url: String = "", method: String = "", headers: Headers? = null) {
         Log.info(StyleFactory.arg(method) + StyleFactory.text(" ") + StyleFactory.selectorName(url))
-
-         /*headers?.forEach() {
-             Log.tag("Заголовок: $it")
-         }*/
     }
 
     private fun logResponse(res: Response) {
-        //return
-
         Log.action("Ответ:", "trace") {
             Log.trace(StyleFactory.text("Код: ") + StyleFactory.result(res.statusCode.toString()))
-            /*res.headers.forEach {
-                Log.tag("Заголовок: " + it.toString())
-            }*/
             try {
                 Log.trace(
                     StyleFactory.text("Тело: \n") + StyleFactory.xpath(
-                        res.body.asString()//.toKeyValueObject().toPrettyJson()
+                        res.body.asString().toKeyValueObject().toPrettyJson()
                     )
                 )
             } catch (e: Exception) {
@@ -776,6 +770,12 @@ open class ApiHelper {
                     out.newLine()
                 }
             }
+        }
+
+        private val currentUrlCall = ThreadLocal<String>()
+
+        fun lastUrlCall() : String {
+            return currentUrlCall.get()
         }
     }
 }

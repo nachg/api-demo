@@ -101,7 +101,7 @@ open class ApiTestCase : ITest {
 
         var code = code ?: testcase.wrapper.responseCode ?: info?.responseCode
 
-        val res =  Log.action("Отправить $title") {
+        val res = Log.action("Отправить $title") {
             val request: Any? = try {
                 testcase.request()
             } catch (s: SkipException) {

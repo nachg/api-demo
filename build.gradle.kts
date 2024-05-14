@@ -52,6 +52,12 @@ dependencies {
         exclude(group = "org.yaml", module = "snakeyaml")
     }
     implementation("io.swagger.parser.v3:swagger-parser-v3:2.1.20")
+
+    implementation("org.postgresql:postgresql:42.5.3")
+    implementation("org.jetbrains.exposed:exposed-core:0.34.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.34.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.34.1")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.34.1")
 }
 
 tasks.named<Test>("test") {
@@ -61,7 +67,7 @@ tasks.named<Test>("test") {
         val path =  System.getenv("xml_suite_path") ?: "src/test/resources/suites/all.xml"
 
         println("XML Suite path: $path")
-        suites(path)
+       // suites(path)
     })
 
     testLogging {

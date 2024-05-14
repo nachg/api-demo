@@ -21,7 +21,7 @@ class ArticlesTest : AuthorizedApiTestCase() {
     fun `Создание Удаление и Поиск по тэгу`() {
         GIVEN("Новый тэг") {
             UUID.randomUUID().toString()
-        }.WHEN("Созданна статья с этим тэгом") {
+        }.WHEN("Создана статья с этим тэгом") {
             api.articles.create(
                 ArticleCreateRequest(
                     ArticleCreateRequest.Article(
@@ -55,6 +55,17 @@ class ArticlesTest : AuthorizedApiTestCase() {
                 assertThat(articles)
                     .isEmpty()
             }
+        }
+    }
+
+    fun t1() {
+        GIVEN("expression") {
+            2 to 3
+        }.WHEN("call plus operator") {
+            given.first + given.second
+        }.THEN("Result should contain sum") {
+            assertThat(actual)
+                .isEqualTo(5)
         }
     }
 }

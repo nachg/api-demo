@@ -4,16 +4,20 @@ import com.apidemo.api.base.AuthorizedApiTestCase
 import com.apidemo.api.realworld.steps.RealWorldContext
 import com.apidemo.api.realworld.steps.RealWorldContext.Companion.context
 import org.testng.annotations.Test
+import org.xpathqs.log.Log
 
-class DemoTest : AuthorizedApiTestCase() {
+class ContextDemoTest : AuthorizedApiTestCase() {
 
     @Test
     fun test() {
-        context {
+        val slug = context {
             create {
                 body = "specific body"
             }
-            //lastAction = RealWorldContext.CREATE
+            action(RealWorldContext.DELETE) {
+                Log.info("override delete action")
+                articles.delete(slug)
+            }
         }
     }
 }

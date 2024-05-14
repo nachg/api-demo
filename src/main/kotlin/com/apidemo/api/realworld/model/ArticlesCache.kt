@@ -26,6 +26,6 @@ open class ArticleModelCls(
                     tagList = listOf("tag1")
                 ),
             )
-        )().article!!
+        )().article
     }
 }
