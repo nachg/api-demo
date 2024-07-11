@@ -39,7 +39,7 @@ class CreateTest : AuthorizedApiTestCase() {
                 response {
                     val given = (requestResult as ArticleCreateRequest).article
                     title = given.title
-                    description = given.description
+                    description = "wrong description"
                     body = given.body
                     tagList = emptyList()
                 }

@@ -8,15 +8,19 @@ import java.time.Duration
 
 fun main() {
     BaseNtTest(
-        parallelDataProvider = DataNt.build(),
-        enableLog = true
+        parallelDataProvider = DataNt.build { api ->
+            api.api.articles.getAll()().articles.map {
+                it.slug!!
+            }
+        },
+        enableLog = false
     ).run(
         method = TestMethod(
-            title = "articles.getAll",
+            title = "articles.getById",
             //Тестируемый метод
             lambda = {
                 it.next().run {
-                    api.api.articles.getAll()
+                    api.api.articles.get(args.next())
                 }
             },
         ),

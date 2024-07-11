@@ -10,5 +10,6 @@ class SmokeTest : ApiTestCase() {
     @Test
     fun checkServiceAlive() {
         API.api.tags.getAll()()
+        API.api.tags.getAll()()
     }
 }

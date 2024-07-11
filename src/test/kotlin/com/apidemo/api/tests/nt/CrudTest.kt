@@ -1,5 +1,6 @@
 package com.apidemo.api.tests.nt
 
+import com.apidemo.api.realworld.steps.RealWorldContext.Companion.context
 import com.apidemo.api.tests.nt.util.DataNt
 import com.apidemo.util.nt.BaseNtTest
 import com.apidemo.util.nt.Config
@@ -9,14 +10,14 @@ import java.time.Duration
 fun main() {
     BaseNtTest(
         parallelDataProvider = DataNt.build(),
-        enableLog = true
+        enableLog = false
     ).run(
         method = TestMethod(
-            title = "articles.getAll",
+            title = "crud",
             //Тестируемый метод
             lambda = {
                 it.next().run {
-                    api.api.articles.getAll()
+                    context(api = api) {}
                 }
             },
         ),

@@ -65,7 +65,7 @@ class ArticlesTest : AuthorizedApiTestCase() {
             given.first + given.second
         }.THEN("Result should contain sum") {
             assertThat(actual)
-                .isEqualTo(5)
+                .isEqualTo(given.first + given.second)
         }
     }
 }
